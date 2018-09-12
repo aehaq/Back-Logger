@@ -1,0 +1,10 @@
+CREATE DATABASE media_db;
+
+USE media_db;
+
+CREATE TABLE media (
+id INT AUTO_INCREMENT NOT NULL,
+media_name VARCHAR(255) NOT NULL,
+completed BOOLEAN NOT NULL DEFAULT 0,
+PRIMARY KEY (id)
+);
