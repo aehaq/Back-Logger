@@ -4,19 +4,19 @@
             <h1 class="display-3">Back Logger</h1>
             <p class="lead">Welcome to BackLogger, a website where you can keep track of and manage your media back log.</p>
             <hr>
-            <form>
+            {{!-- <form>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Add Media</label>
                     <input type="text" class="form-control" id="mediaInput" placeholder="Add Media to Backlog">
                 </div>
                 <button type="submit" class="btn btn-primary" id="add">Submit</button>
-            </form>
+            </form> --}}
         </div>
     </div>
-    <div class="row">
+    <div class="row mb-10">
 
         <div class="col-md-6">
-            <div class="card" style="width: 18rem;">
+            <div class="card mx-auto" style="width: 27rem;">
                 <div class="card-header">
                     Media Left to Consume
                 </div>
@@ -34,22 +34,34 @@
         </div>
         <div class="col-md-6">
             <div class="col-md-6">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                    Consumed Media
+                <div class="card mx-auto" style="width: 27rem;">
+                    <div class="card-header">
+                        Consumed Media
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        {{#each media}}
+                            {{#if completed}}
+                                <li class="list-group-item">
+                                    {{media_name}}
+                                </li>
+                            {{/if}}
+                        {{/each}}
+                    </ul>
                 </div>
-                <ul class="list-group list-group-flush">
-                    {{#each media}}
-                        {{#if completed}}
-                            <li class="list-group-item">
-                                {{media_name}}
-                            </li>
-                        {{/if}}
-                    {{/each}}
-                </ul>
             </div>
         </div>
-        </div>
+        <div class="row"></div>
+    </div>
+</div>
+<div class="footer bg-dark">
+    <div class="container">
+            <form class="p-3">
+                <div class="form-group">
+                    <label for="input" class="text-light">Add Media</label>
+                    <input type="text" class="form-control" id="mediaInput" placeholder="Add Media to Backlog">
+                </div>
+                <button type="submit" class="btn btn-primary" id="add">Submit</button>
+            </form>
     </div>
 </div>
 
