@@ -11,8 +11,8 @@ var media = {
             cb(res);
         });
     },
-    updateOne: function(newVal, column, condition, cb) {
-        orm.updateOne("media", newVal, column, condition, function(res) {
+    updateOne: function(newVal, condition, cb) {
+        orm.updateOne("media", newVal, condition, function(res) {
             cb(res);
         });
     }

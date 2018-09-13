@@ -16,10 +16,10 @@ var orm = {
             cb(result);
         })
     },
-    updateOne: function(table, newVal, column, condition, cb) {
-        var queryString = "UPDATE ?? SET ?? WHERE ?? = ?"
+    updateOne: function(table, newVal, condition, cb) {
+        var queryString = "UPDATE "+ table +" SET ? WHERE "+condition;
 
-        connection.query(queryString, [table, newVal, column, condition], function(err, result) {
+        connection.query(queryString, [newVal], function(err, result) {
             if (err) throw err;
             cb(result);
         })
