@@ -5,7 +5,7 @@ Back-Logger is a full-stack web application which uses Object Relational Mapping
 [Back Logger](https://back-logger.herokuapp.com/)
 
 # Images
-![Preview](assets/img/preview.PNG)
+![Preview](public/assets/img/preview.PNG)
 
 # Technology Used
 - HTML
