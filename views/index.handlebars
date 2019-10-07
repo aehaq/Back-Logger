@@ -4,13 +4,15 @@
             <h1 class="display-3">Back Logger</h1>
             <p class="lead">Welcome to BackLogger, a website where you can keep track of and manage your media back log.</p>
             <hr>
-            {{!-- <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Add Media</label>
-                    <input type="text" class="form-control" id="mediaInput" placeholder="Add Media to Backlog">
-                </div>
-                <button type="submit" class="btn btn-primary" id="add">Submit</button>
-            </form> --}}
+            <div class="container">
+                <form class="p-3">
+                    <div class="form-group">
+                        <label for="input" class="text-light">Add Media</label>
+                        <input type="text" class="form-control" id="mediaInput" placeholder="Add Media to Backlog">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="add">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
     <div class="row mb-10">
@@ -43,6 +45,7 @@
                             {{#if completed}}
                                 <li class="list-group-item">
                                     {{media_name}}
+                                    <button type="button" class="btn-sm btn-danger remove" data-id="{{id}}"> X </button>
                                 </li>
                             {{/if}}
                         {{/each}}
@@ -51,17 +54,6 @@
             </div>
         </div>
         <div class="row"></div>
-    </div>
-</div>
-<div class="footer bg-dark">
-    <div class="container">
-            <form class="p-3">
-                <div class="form-group">
-                    <label for="input" class="text-light">Add Media</label>
-                    <input type="text" class="form-control" id="mediaInput" placeholder="Add Media to Backlog">
-                </div>
-                <button type="submit" class="btn btn-primary" id="add">Submit</button>
-            </form>
     </div>
 </div>
 
@@ -89,6 +81,20 @@
 
         $.ajax("/api/media/"+id, {
             type: "PUT"
+        })
+        .then(function(data) {
+            location.reload();
+        })
+    })
+
+    $(".remove").on("click", function(event) {
+        event.preventDefault();
+
+        var id = $(this).data("id");
+        console.log(id)
+
+        $.ajax("/api/media/"+id, {
+            type: "DELETE"
         })
         .then(function(data) {
             location.reload();
