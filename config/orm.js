@@ -17,9 +17,17 @@ var orm = {
         })
     },
     updateOne: function(table, newVal, condition, cb) {
-        var queryString = "UPDATE "+ table +" SET ? WHERE "+condition;
-
+        var queryString = "UPDATE "+ table +" SET ? WHERE "+ condition;
+        console.log(queryString)
         connection.query(queryString, [newVal], function(err, result) {
+            if (err) throw err;
+            cb(result);
+        })
+    },
+    deleteOne: function(table, condition, cb) {
+        var queryString = "DELETE FROM "+ table +" WHERE "+ condition;
+        console.log(queryString)
+        connection.query(queryString, function(err, result) {
             if (err) throw err;
             cb(result);
         })

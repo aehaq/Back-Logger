@@ -26,8 +26,14 @@
                     {{#each media}}
                         {{#unless completed}}
                             <li class="list-group-item">
-                                {{media_name}}
-                                <button type="button" class="btn-sm btn-primary mark-complete" data-id="{{id}}"> Consume </button>
+                                <div class="row">
+                                    <div class="col">
+                                        {{media_name}} 
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn-sm btn-primary float-right mark-complete" data-id="{{id}}"> Consume </button>
+                                    </div>
+                                </div>
                             </li>
                         {{/unless}}
                     {{/each}}
@@ -44,8 +50,14 @@
                         {{#each media}}
                             {{#if completed}}
                                 <li class="list-group-item">
-                                    {{media_name}}
-                                    <button type="button" class="btn-sm btn-danger remove" data-id="{{id}}"> X </button>
+                                    <div class="row">
+                                        <div class="col">
+                                            {{media_name}} 
+                                        </div>
+                                        <div class="col">
+                                            <button type="button" class="btn-sm btn-danger float-right remove" data-id="{{id}}"> X </button>
+                                        </div>
+                                    </div>
                                 </li>
                             {{/if}}
                         {{/each}}
@@ -79,7 +91,7 @@
         var id = $(this).data("id");
         console.log(id)
 
-        $.ajax("/api/media/"+id, {
+        $.ajax("/api/media/update/"+id, {
             type: "PUT"
         })
         .then(function(data) {
@@ -93,7 +105,7 @@
         var id = $(this).data("id");
         console.log(id)
 
-        $.ajax("/api/media/"+id, {
+        $.ajax("/api/media/delete/"+id, {
             type: "DELETE"
         })
         .then(function(data) {

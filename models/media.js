@@ -15,6 +15,11 @@ var media = {
         orm.updateOne("media", newVal, condition, function(res) {
             cb(res);
         });
+    },
+    deleteOne: function(condition, cb) {
+        orm.deleteOne("media", condition, function(res) {
+            cb(res);
+        });
     }
 };
 

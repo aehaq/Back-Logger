@@ -16,9 +16,18 @@ router.post("/api/media", function(req, res) {
     });
 });
 
-router.put("/api/media/:id", function(req, res) {
+router.put("/api/media/update/:id", function(req, res) {
     condition = "id = " + req.params.id
+    console.log(condition)
     media.updateOne({completed: 1}, condition, function(result) {
+        res.json(result)
+    });
+});
+
+router.delete("/api/media/delete/:id", function(req, res) {
+    condition = `id = ${req.params.id}`
+    console.log(condition)
+    media.deleteOne(condition, function(result) {
         res.json(result)
     });
 });
