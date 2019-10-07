@@ -1,13 +1,11 @@
-<div class="container-fluid">
-    <div class="jumbotron jumbotron-fluid">
+<div class="container-fluid pb-2">
+    <div class="jumbotron jumbotron-fluid p-2">
         <div class="container">
             <h1 class="display-3">Back Logger</h1>
             <p class="lead">Welcome to BackLogger, a website where you can keep track of and manage your media back log.</p>
-            <hr>
             <div class="container">
                 <form class="p-3">
                     <div class="form-group">
-                        <label for="input" class="text-light">Add Media</label>
                         <input type="text" class="form-control" id="mediaInput" placeholder="Add Media to Backlog">
                     </div>
                     <button type="submit" class="btn btn-primary" id="add">Submit</button>
@@ -41,28 +39,26 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="col-md-6">
-                <div class="card mx-auto" style="width: 22rem;">
-                    <div class="card-header">
-                        Consumed Media
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        {{#each media}}
-                            {{#if completed}}
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <div class="col">
-                                            {{media_name}} 
-                                        </div>
-                                        <div class="col">
-                                            <button type="button" class="btn-sm btn-danger float-right remove" data-id="{{id}}"> X </button>
-                                        </div>
-                                    </div>
-                                </li>
-                            {{/if}}
-                        {{/each}}
-                    </ul>
+            <div class="card mx-auto" style="width: 22rem;">
+                <div class="card-header">
+                    Consumed Media
                 </div>
+                <ul class="list-group list-group-flush">
+                    {{#each media}}
+                        {{#if completed}}
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col">
+                                        {{media_name}} 
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn-sm btn-danger float-right remove" data-id="{{id}}"> X </button>
+                                    </div>
+                                </div>
+                            </li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
             </div>
         </div>
         <div class="row"></div>
